@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".high.grade.ui.UIMainActivity"
+    android:padding="10dp">>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:text="第二节-UI绘制流程(测量布局)"
+        android:textSize="16sp"
+        android:onClick="openMeasureDrawTestActivity"/>
+
+</LinearLayout>
