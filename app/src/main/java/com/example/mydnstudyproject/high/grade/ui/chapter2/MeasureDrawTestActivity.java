@@ -1,14 +1,14 @@
 package com.example.mydnstudyproject.high.grade.ui.chapter2;
 
-import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.mydnstudyproject.R;
 
-public class MeasureDrawTestActivity extends AppCompatActivity {
+public class MeasureDrawTestActivity extends Activity {
 
     public static void startActicity(Context context){
         Intent intent = new Intent(context, MeasureDrawTestActivity.class);
