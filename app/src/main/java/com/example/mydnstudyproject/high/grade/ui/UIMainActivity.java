@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.example.mydnstudyproject.R;
 import com.example.mydnstudyproject.high.grade.ui.chapter2.MeasureDrawTestActivity;
+import com.example.mydnstudyproject.high.grade.ui.chapter3.GradientTestActivity;
 
 public class UIMainActivity extends AppCompatActivity {
 
@@ -27,5 +28,9 @@ public class UIMainActivity extends AppCompatActivity {
 
     public void openMeasureDrawTestActivity(View view) {
         MeasureDrawTestActivity.startActicity(this);
+    }
+
+    public void openGradientTestActivity(View view) {
+        GradientTestActivity.startActicity(this);
     }
 }

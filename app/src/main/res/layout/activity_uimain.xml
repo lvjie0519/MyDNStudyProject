@@ -15,4 +15,12 @@
         android:textSize="16sp"
         android:onClick="openMeasureDrawTestActivity"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:text="第三节-Paint-Gradient"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        android:onClick="openGradientTestActivity"/>
+
 </LinearLayout>

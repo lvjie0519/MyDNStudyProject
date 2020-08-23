@@ -14,7 +14,8 @@
         android:gravity="center">
         <com.example.mydnstudyproject.high.grade.ui.chapter2.FlowLayout
             android:layout_width="100dp"
-            android:layout_height="50dp"/>
+            android:layout_height="50dp"
+            android:background="#ab1212"/>
     </LinearLayout>
 
 </LinearLayout>

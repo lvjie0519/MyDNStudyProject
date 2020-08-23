@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 
 import com.example.mydnstudyproject.utils.DisplayUtil;
 
+/**
+ * onMeasure->onSizeChanged->onLayout->onDraw
+ */
 public class FlowLayout extends ViewGroup {
 
 
@@ -60,5 +63,12 @@ public class FlowLayout extends ViewGroup {
         super.onDraw(canvas);
 
         Log.i("lvjie", "onDraw...");
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+
+        Log.i("lvjie", "onSizeChanged...");
     }
 }
