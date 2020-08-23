@@ -23,4 +23,12 @@
         android:textAllCaps="false"
         android:onClick="openGradientTestActivity"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:text="第三节-滤镜-XFermode"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        android:onClick="openPaintXfermodeTestActivity"/>
+
 </LinearLayout>

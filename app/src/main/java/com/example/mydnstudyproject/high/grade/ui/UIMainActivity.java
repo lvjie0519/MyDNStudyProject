@@ -10,6 +10,7 @@ import android.view.View;
 import com.example.mydnstudyproject.R;
 import com.example.mydnstudyproject.high.grade.ui.chapter2.MeasureDrawTestActivity;
 import com.example.mydnstudyproject.high.grade.ui.chapter3.GradientTestActivity;
+import com.example.mydnstudyproject.high.grade.ui.chapter4.PaintXfermodeTestActivity;
 
 public class UIMainActivity extends AppCompatActivity {
 
@@ -32,5 +33,9 @@ public class UIMainActivity extends AppCompatActivity {
 
     public void openGradientTestActivity(View view) {
         GradientTestActivity.startActicity(this);
+    }
+
+    public void openPaintXfermodeTestActivity(View view) {
+        PaintXfermodeTestActivity.startActicity(this);
     }
 }
