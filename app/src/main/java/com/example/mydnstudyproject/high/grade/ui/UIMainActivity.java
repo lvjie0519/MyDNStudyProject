@@ -11,6 +11,7 @@ import com.example.mydnstudyproject.R;
 import com.example.mydnstudyproject.high.grade.ui.chapter2.MeasureDrawTestActivity;
 import com.example.mydnstudyproject.high.grade.ui.chapter3.GradientTestActivity;
 import com.example.mydnstudyproject.high.grade.ui.chapter4.PaintXfermodeTestActivity;
+import com.example.mydnstudyproject.high.grade.ui.chapter5.Chapter5MainTestActivity;
 
 public class UIMainActivity extends AppCompatActivity {
 
@@ -37,5 +38,9 @@ public class UIMainActivity extends AppCompatActivity {
 
     public void openPaintXfermodeTestActivity(View view) {
         PaintXfermodeTestActivity.startActicity(this);
+    }
+
+    public void openCanvasTestActivity(View view) {
+        Chapter5MainTestActivity.startActivity(this);
     }
 }

@@ -30,5 +30,12 @@
         android:textSize="16sp"
         android:textAllCaps="false"
         android:onClick="openPaintXfermodeTestActivity"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:text="第五节-Canvas 相关"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        android:onClick="openCanvasTestActivity"/>
 
 </LinearLayout>
