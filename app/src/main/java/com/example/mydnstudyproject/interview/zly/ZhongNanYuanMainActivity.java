@@ -1,16 +1,23 @@
 package com.example.mydnstudyproject.interview.zly;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mydnstudyproject.R;
+import com.example.mydnstudyproject.interview.zly.db.table.TUserApply;
+import com.raizlabs.android.dbflow.sql.language.SQLite;
 
-public class ZhongNanYuanMainActivity extends AppCompatActivity {
+import java.util.List;
+
+public class ZhongNanYuanMainActivity extends Activity {
 
     // header 部分
     private ImageView mIvHeaderLeft;
@@ -18,6 +25,11 @@ public class ZhongNanYuanMainActivity extends AppCompatActivity {
     private ImageView mIvHeaderRight;
 
     private RecyclerView mRvApplyList;
+
+    public static void startActivity(Context context){
+        Intent intent = new Intent(context, ZhongNanYuanMainActivity.class);
+        context.startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +62,12 @@ public class ZhongNanYuanMainActivity extends AppCompatActivity {
         this.mIvHeaderRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                TUserApply userApply = new TUserApply("zhangshan", "lishi",
+//                        "出差", 1000.12, "2020-8-12 12:24:10");
+//                userApply.insert();
 
+//                List<TUserApply> datas = SQLite.select().from(TUserApply.class).queryList();
+//                Log.i("lvjie", datas.toString());
             }
         });
     }

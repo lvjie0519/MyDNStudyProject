@@ -7,7 +7,9 @@
     android:background="#ffffff"
     tools:context=".interview.zly.ZhongNanYuanMainActivity">
 
-    <include layout="@layout/layout_header"/>
+
+    <include layout="@layout/layout_header" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_apply_list"
         android:layout_width="match_parent"

@@ -19,6 +19,7 @@ android {
     }
 }
 
+def dbFlow_version = "4.2.4"
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.0.2'
@@ -27,4 +28,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha05'
+
+    annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:${dbFlow_version}"
+    implementation "com.github.Raizlabs.DBFlow:dbflow-core:${dbFlow_version}"
+    implementation "com.github.Raizlabs.DBFlow:dbflow:${dbFlow_version}"
 }

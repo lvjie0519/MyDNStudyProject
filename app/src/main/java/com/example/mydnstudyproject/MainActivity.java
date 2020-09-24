@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.mydnstudyproject.high.grade.ui.UIMainActivity;
+import com.example.mydnstudyproject.interview.zly.ZhongNanYuanMainActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openHighGradeUIActivity(View view) {
-        UIMainActivity.startActicity(this);
+//        UIMainActivity.startActicity(this);
+        ZhongNanYuanMainActivity.startActivity(this);
     }
 }
