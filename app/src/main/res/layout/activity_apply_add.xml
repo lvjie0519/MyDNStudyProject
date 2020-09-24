@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    tools:context=".interview.zly.ApplyAddActivity">
+
+    <include layout="@layout/layout_header" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="姓名: "
+            android:textSize="@dimen/apply_add_text_size"
+            android:textColor="@color/apply_add_text_color"
+            android:layout_marginRight="10dp"
+            android:gravity="right"
+            />
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/edittext_frame"
+            android:hint="请输入自己的姓名"
+            android:textSize="@dimen/apply_add_text_size"
+            android:textColor="@color/apply_add_edit_text_color"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="陪同人: "
+            android:textSize="@dimen/apply_add_text_size"
+            android:textColor="@color/apply_add_text_color"
+            android:layout_marginRight="10dp"
+            android:gravity="right"
+            />
+        <EditText
+            android:id="@+id/et_extra_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/edittext_frame"
+            android:hint="请输入陪同人的姓名"
+            android:textSize="@dimen/apply_add_text_size"
+            android:textColor="@color/apply_add_edit_text_color"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="费用: "
+            android:textSize="@dimen/apply_add_text_size"
+            android:textColor="@color/apply_add_text_color"
+            android:layout_marginRight="10dp"
+            android:gravity="right"
+            />
+        <EditText
+            android:id="@+id/et_charge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/edittext_frame"
+            android:hint="请输入申请的费用(元)"
+            android:textSize="@dimen/apply_add_text_size"
+            android:textColor="@color/apply_add_edit_text_color"
+            android:inputType="numberDecimal"
+            />
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/et_apply_info"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        android:hint="请输入申请事由"
+        android:inputType="textMultiLine"
+        android:gravity="top"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textSize="@dimen/apply_add_text_size"
+        android:textColor="@color/apply_add_edit_text_color"
+        android:background="@drawable/edittext_frame"
+        />
+
+    <Button
+        android:id="@+id/btn_ok"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:text="确定"
+        android:textSize="16sp"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:background="@drawable/btn_ok_frame_corner"
+        />
+
+</LinearLayout>

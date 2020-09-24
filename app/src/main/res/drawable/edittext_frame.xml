@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!-- 内部颜色 -->
+    <solid android:color="#ffffff" />
+
+    <!-- 边框颜色灰色 边框粗细-->
+    <stroke
+        android:width="0.01dp"
+        android:color="#cccccc" />
+    <!-- 边框内容与边框距离 -->
+    <padding
+    android:bottom="8dp"
+    android:left="8dp"
+    android:right="8dp"
+    android:top="8dp" />
+
+</shape>

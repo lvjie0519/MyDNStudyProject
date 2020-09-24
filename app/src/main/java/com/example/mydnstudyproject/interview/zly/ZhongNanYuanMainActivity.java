@@ -88,6 +88,7 @@ public class ZhongNanYuanMainActivity extends Activity {
 
 //                List<TUserApply> datas = SQLite.select().from(TUserApply.class).queryList();
 //                Log.i("lvjie", datas.toString());
+                ApplyAddActivity.startActivity(ZhongNanYuanMainActivity.this);
             }
         });
     }
