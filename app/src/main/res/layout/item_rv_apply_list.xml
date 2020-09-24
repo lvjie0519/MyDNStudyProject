@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:orientation="horizontal"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:id="@+id/layout_item"
+    android:gravity="center_vertical">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_name_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2020-12-12(张三)"
+            android:textSize="15sp"
+            android:textColor="#333333"
+            />
+        <TextView
+            android:id="@+id/tv_apply_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:text="异常的解决 这个运行错误,主要出现在安卓系统5.0一下手机系统。在5.0以上手机系统,不会出现这个错误."
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:ellipsize="end"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_apply_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="申请中"
+        android:textColor="#ffffff"
+        android:textSize="14sp"
+        android:padding="10dp"
+        android:background="@drawable/btn_frame_corner"
+        />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/icon_right_arrow"
+        />
+
+
+</LinearLayout>

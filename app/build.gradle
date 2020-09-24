@@ -32,4 +32,6 @@ dependencies {
     annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:${dbFlow_version}"
     implementation "com.github.Raizlabs.DBFlow:dbflow-core:${dbFlow_version}"
     implementation "com.github.Raizlabs.DBFlow:dbflow:${dbFlow_version}"
+
+    implementation 'io.reactivex:rxandroid:1.0.1'
 }

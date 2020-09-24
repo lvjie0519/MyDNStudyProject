@@ -1,5 +1,8 @@
 package com.example.mydnstudyproject.interview.zly;
 
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
@@ -12,10 +15,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mydnstudyproject.R;
+import com.example.mydnstudyproject.interview.zly.adapter.RvApplyListAdapter;
 import com.example.mydnstudyproject.interview.zly.db.table.TUserApply;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
 
 import java.util.List;
+
+import rx.Observable;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+import rx.schedulers.Schedulers;
 
 public class ZhongNanYuanMainActivity extends Activity {
 
@@ -25,6 +35,8 @@ public class ZhongNanYuanMainActivity extends Activity {
     private ImageView mIvHeaderRight;
 
     private RecyclerView mRvApplyList;
+    private RvApplyListAdapter mAdapter;
+    private List<TUserApply> mDatas;
 
     public static void startActivity(Context context){
         Intent intent = new Intent(context, ZhongNanYuanMainActivity.class);
@@ -38,6 +50,7 @@ public class ZhongNanYuanMainActivity extends Activity {
 
         this.initView();
         this.bindListener();
+        this.requestData();
     }
 
     private void initView(){
@@ -56,6 +69,13 @@ public class ZhongNanYuanMainActivity extends Activity {
 
     private void initContentView(){
         this.mRvApplyList = findViewById(R.id.rv_apply_list);
+
+        mRvApplyList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        itemDecoration.setDrawable(ContextCompat.getDrawable(this, R.drawable.icon_list_item_divider));
+        mRvApplyList.addItemDecoration(itemDecoration);
+        mAdapter = new RvApplyListAdapter(this, mDatas);
+        mRvApplyList.setAdapter(mAdapter);
     }
 
     private void bindListener(){
@@ -70,5 +90,29 @@ public class ZhongNanYuanMainActivity extends Activity {
 //                Log.i("lvjie", datas.toString());
             }
         });
+    }
+
+    private void requestData(){
+        Observable.create(new Observable.OnSubscribe<String>() {
+            @Override
+            public void call(Subscriber<? super String> subscriber) {
+                mDatas = SQLite.select().from(TUserApply.class).queryList();
+                subscriber.onNext("");
+            }
+        }).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<String>() {
+                    @Override
+                    public void call(String s) {
+                        mDatas = SQLite.select().from(TUserApply.class).queryList();
+                        mAdapter.setDatas(mDatas);
+                        mAdapter.notifyDataSetChanged();
+                    }
+                }, new Action1<Throwable>() {
+                    @Override
+                    public void call(Throwable throwable) {
+
+                    }
+                });
     }
 }
