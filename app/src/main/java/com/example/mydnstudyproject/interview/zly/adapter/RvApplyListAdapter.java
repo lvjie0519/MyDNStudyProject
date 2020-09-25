@@ -68,7 +68,7 @@ public class RvApplyListAdapter extends RecyclerView.Adapter<RvApplyListAdapter.
         }
 
         private void updateView(TUserApply userApply, int position){
-            String nameAndTime = userApply.getApplyTime()+"("+userApply.getUserName()+")";
+            String nameAndTime = userApply.getUserName()+"    "+userApply.getApplyTime();
             this.tvNameAndTime.setText(nameAndTime);
             this.tvApplyInfo.setText(userApply.getApplyReason());
         }

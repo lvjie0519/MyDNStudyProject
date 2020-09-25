@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.example.mydnstudyproject.R;
 import com.example.mydnstudyproject.interview.zly.adapter.RvApplyListAdapter;
 import com.example.mydnstudyproject.interview.zly.db.table.TUserApply;
+import com.example.mydnstudyproject.interview.zly.db.table.TUserApply_Table;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
 
 import java.util.List;
@@ -28,6 +29,8 @@ import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
 public class ZhongNanYuanMainActivity extends Activity {
+
+    private static final int REQUEST_CODE_ADD_SUCSESS = 1001;       // 添加数据成功
 
     // header 部分
     private ImageView mIvHeaderLeft;
@@ -82,13 +85,7 @@ public class ZhongNanYuanMainActivity extends Activity {
         this.mIvHeaderRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                TUserApply userApply = new TUserApply("zhangshan", "lishi",
-//                        "出差", 1000.12, "2020-8-12 12:24:10");
-//                userApply.insert();
-
-//                List<TUserApply> datas = SQLite.select().from(TUserApply.class).queryList();
-//                Log.i("lvjie", datas.toString());
-                ApplyAddActivity.startActivity(ZhongNanYuanMainActivity.this);
+                ApplyAddActivity.startActivityForResult(ZhongNanYuanMainActivity.this, 1001);
             }
         });
     }
@@ -97,7 +94,7 @@ public class ZhongNanYuanMainActivity extends Activity {
         Observable.create(new Observable.OnSubscribe<String>() {
             @Override
             public void call(Subscriber<? super String> subscriber) {
-                mDatas = SQLite.select().from(TUserApply.class).queryList();
+                mDatas = SQLite.select().from(TUserApply.class).orderBy(TUserApply_Table.id, false).queryList();
                 subscriber.onNext("");
             }
         }).subscribeOn(Schedulers.io())
@@ -105,7 +102,6 @@ public class ZhongNanYuanMainActivity extends Activity {
                 .subscribe(new Action1<String>() {
                     @Override
                     public void call(String s) {
-                        mDatas = SQLite.select().from(TUserApply.class).queryList();
                         mAdapter.setDatas(mDatas);
                         mAdapter.notifyDataSetChanged();
                     }
@@ -115,5 +111,12 @@ public class ZhongNanYuanMainActivity extends Activity {
 
                     }
                 });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode == ApplyAddActivity.RESULT_CODE_ADD_SUCCESS){
+            requestData();
+        }
     }
 }
