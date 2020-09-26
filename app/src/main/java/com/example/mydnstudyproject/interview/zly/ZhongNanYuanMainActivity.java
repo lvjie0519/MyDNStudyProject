@@ -41,6 +41,8 @@ public class ZhongNanYuanMainActivity extends Activity {
     private RvApplyListAdapter mAdapter;
     private List<TUserApply> mDatas;
 
+    private View layoutEmpty;
+
     public static void startActivity(Context context){
         Intent intent = new Intent(context, ZhongNanYuanMainActivity.class);
         context.startActivity(intent);
@@ -71,6 +73,9 @@ public class ZhongNanYuanMainActivity extends Activity {
     }
 
     private void initContentView(){
+        this.layoutEmpty = findViewById(R.id.layout_empty);
+        this.layoutEmpty.setVisibility(View.GONE);
+
         this.mRvApplyList = findViewById(R.id.rv_apply_list);
 
         mRvApplyList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
@@ -109,8 +114,7 @@ public class ZhongNanYuanMainActivity extends Activity {
                 .subscribe(new Action1<String>() {
                     @Override
                     public void call(String s) {
-                        mAdapter.setDatas(mDatas);
-                        mAdapter.notifyDataSetChanged();
+                        updateView();
                     }
                 }, new Action1<Throwable>() {
                     @Override
@@ -118,6 +122,16 @@ public class ZhongNanYuanMainActivity extends Activity {
 
                     }
                 });
+    }
+
+    private void updateView(){
+        mAdapter.setDatas(mDatas);
+        mAdapter.notifyDataSetChanged();
+        if(mDatas == null || mDatas.size() == 0){
+            layoutEmpty.setVisibility(View.VISIBLE);
+        }else{
+            layoutEmpty.setVisibility(View.GONE);
+        }
     }
 
     @Override
