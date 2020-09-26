@@ -18,6 +18,7 @@ public class RvApplyListAdapter extends RecyclerView.Adapter<RvApplyListAdapter.
 
     private Context mContext;
     private List<TUserApply> mDatas;
+    private OnItemClickListener onItemClickListener;
 
 
     public RvApplyListAdapter(Context context, List<TUserApply> datas) {
@@ -47,12 +48,28 @@ public class RvApplyListAdapter extends RecyclerView.Adapter<RvApplyListAdapter.
         this.mDatas = datas;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder{
 
         private View layoutView;
         private TextView tvNameAndTime;
         private TextView tvApplyInfo;
         private TextView tvApplyStatus;
+
+        private int position;
+        private TUserApply tUserApply;
+
+        private View.OnClickListener mOnClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(onItemClickListener != null){
+                    onItemClickListener.onItemClick(position, tUserApply);
+                }
+            }
+        };
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -71,6 +88,10 @@ public class RvApplyListAdapter extends RecyclerView.Adapter<RvApplyListAdapter.
             String nameAndTime = userApply.getUserName()+"    "+userApply.getApplyTime();
             this.tvNameAndTime.setText(nameAndTime);
             this.tvApplyInfo.setText(userApply.getApplyReason());
+            this.position = position;
+            this.tUserApply = userApply;
+
+            this.layoutView.setOnClickListener(this.mOnClickListener);
         }
     }
 

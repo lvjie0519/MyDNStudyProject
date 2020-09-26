@@ -88,6 +88,13 @@ public class ZhongNanYuanMainActivity extends Activity {
                 ApplyAddActivity.startActivityForResult(ZhongNanYuanMainActivity.this, 1001);
             }
         });
+
+        mAdapter.setOnItemClickListener(new RvApplyListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position, TUserApply userApply) {
+                ApplyFormDetailActivity.startActivity(ZhongNanYuanMainActivity.this, userApply.getId());
+            }
+        });
     }
 
     private void requestData(){

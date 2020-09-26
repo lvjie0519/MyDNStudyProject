@@ -11,13 +11,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".interview.zly.ApplyFormDetailActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
             android:name=".interview.zly.ApplyAddActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".interview.zly.ZhongNanYuanMainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
         <activity android:name=".high.grade.ui.chapter5.Chapter5MainTestActivity" />
         <activity android:name=".high.grade.ui.chapter4.PaintXfermodeTestActivity" />
         <activity android:name=".high.grade.ui.chapter3.GradientTestActivity" />

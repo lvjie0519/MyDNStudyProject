@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.example.mydnstudyproject.R;
 import com.example.mydnstudyproject.interview.zly.db.table.TUserApply;
 import com.example.mydnstudyproject.interview.zly.utils.ToastUtil;
+import com.example.mydnstudyproject.utils.DateUtil;
 
 public class ApplyAddActivity extends Activity {
 
@@ -120,7 +121,7 @@ public class ApplyAddActivity extends Activity {
 
 
                 TUserApply userApply = new TUserApply(name, extraName,
-                        applyInfo, price, "2020-8-12 12:24:10");
+                        applyInfo, price, DateUtil.getNowDateTimeStr());
                 userApply.insert();
 
                 ApplyAddActivity.this.setResult(RESULT_CODE_ADD_SUCCESS);

@@ -6,4 +6,5 @@
 
     <color name="apply_add_text_color">#777777</color>
     <color name="apply_add_edit_text_color">#333333</color>
+    <color name="divide_line_color">#999999</color>
 </resources>
