@@ -30,7 +30,8 @@ import rx.schedulers.Schedulers;
 
 public class ZhongNanYuanMainActivity extends Activity {
 
-    private static final int REQUEST_CODE_ADD_SUCSESS = 1001;       // 添加数据成功
+    private static final int REQUEST_CODE_ADD_DATA = 1001;       // 添加数据
+    private static final int REQUEST_CODE_DELETE_DATA = 1002;       // 删除数据
 
     // header 部分
     private ImageView mIvHeaderLeft;
@@ -90,14 +91,14 @@ public class ZhongNanYuanMainActivity extends Activity {
         this.mIvHeaderRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ApplyAddActivity.startActivityForResult(ZhongNanYuanMainActivity.this, 1001);
+                ApplyAddActivity.startActivityForResult(ZhongNanYuanMainActivity.this, REQUEST_CODE_ADD_DATA);
             }
         });
 
         mAdapter.setOnItemClickListener(new RvApplyListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position, TUserApply userApply) {
-                ApplyFormDetailActivity.startActivity(ZhongNanYuanMainActivity.this, userApply.getId());
+                ApplyFormDetailActivity.startActivity(ZhongNanYuanMainActivity.this, userApply.getId(), REQUEST_CODE_DELETE_DATA);
             }
         });
     }
@@ -136,7 +137,7 @@ public class ZhongNanYuanMainActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(resultCode == ApplyAddActivity.RESULT_CODE_ADD_SUCCESS){
+        if(resultCode == ApplyAddActivity.RESULT_CODE_ADD_SUCCESS || resultCode == ApplyFormDetailActivity.RESULT_CODE_DELETE_SUCCESS){
             requestData();
         }
     }

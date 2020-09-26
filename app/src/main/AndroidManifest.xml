@@ -18,18 +18,20 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".interview.zly.ZhongNanYuanMainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".high.grade.ui.chapter5.Chapter5MainTestActivity" />
         <activity android:name=".high.grade.ui.chapter4.PaintXfermodeTestActivity" />
         <activity android:name=".high.grade.ui.chapter3.GradientTestActivity" />
         <activity android:name=".high.grade.ui.chapter2.MeasureDrawTestActivity" />
         <activity android:name=".high.grade.ui.UIMainActivity" />
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

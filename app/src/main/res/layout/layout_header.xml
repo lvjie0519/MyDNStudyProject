@@ -5,9 +5,10 @@
 
     <ImageView
         android:id="@+id/iv_header_left"
-        android:layout_width="30dp"
+        android:layout_width="50dp"
         android:layout_height="30dp"
-        android:background="@drawable/icon_back"
+        android:paddingRight="20dp"
+        android:src="@drawable/icon_back"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         />
@@ -21,11 +22,24 @@
         android:layout_centerInParent="true"/>
     <ImageView
         android:id="@+id/iv_header_right"
-        android:layout_width="30dp"
+        android:layout_width="50dp"
         android:layout_height="30dp"
-        android:background="@drawable/icon_add"
+        android:src="@drawable/icon_add"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
+        />
+
+    <TextView
+        android:id="@+id/tv_header_right"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="撤销"
+        android:textSize="15sp"
+        android:textColor="#33a3dc"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
         />
 
     <View
