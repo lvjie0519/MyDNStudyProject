@@ -17,7 +17,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openHighGradeUIActivity(View view) {
-//        UIMainActivity.startActicity(this);
+        UIMainActivity.startActicity(this);
+    }
+
+    public void openZhongNanYuanActivity(View view) {
         ZhongNanYuanMainActivity.startActivity(this);
     }
 }

@@ -13,5 +13,11 @@
         android:text="高级UI"
         android:textSize="16sp"
         android:onClick="openHighGradeUIActivity"/>
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="46dp"
+        android:text="招待费用"
+        android:textSize="16sp"
+        android:onClick="openZhongNanYuanActivity"/>
 
 </LinearLayout>
