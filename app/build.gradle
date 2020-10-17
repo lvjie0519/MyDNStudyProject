@@ -41,4 +41,7 @@ dependencies {
     implementation "com.github.Raizlabs.DBFlow:dbflow:${dbFlow_version}"
 
     implementation 'io.reactivex:rxandroid:1.0.1'
+
+    // 动态换肤
+    implementation project(path: ':skin_core')
 }

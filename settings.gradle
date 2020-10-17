@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':skin_core', ':app_skin'
 rootProject.name='MyDNStudyProject'

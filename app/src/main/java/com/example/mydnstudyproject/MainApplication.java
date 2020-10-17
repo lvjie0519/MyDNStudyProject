@@ -3,6 +3,7 @@ package com.example.mydnstudyproject;
 import android.app.Application;
 
 import com.example.mydnstudyproject.interview.zly.db.AppDatabase;
+import com.example.skin.core.SkinManager;
 import com.raizlabs.android.dbflow.config.DatabaseConfig;
 import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowManager;
@@ -19,5 +20,7 @@ public class MainApplication extends Application {
 //                        .build())
 //                .build());
         FlowManager.init(new FlowConfig.Builder(this).build());
+
+        SkinManager.init(this);
     }
 }

@@ -10,6 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".framework.chapter10.SkinTestOneActivity"></activity>
+        <activity android:name=".framework.chapter10.SkinMainTestActivity" />
         <activity
             android:name=".interview.zly.ApplyFormDetailActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -18,8 +20,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".interview.zly.ZhongNanYuanMainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".high.grade.ui.chapter5.Chapter5MainTestActivity" />
         <activity android:name=".high.grade.ui.chapter4.PaintXfermodeTestActivity" />
         <activity android:name=".high.grade.ui.chapter3.GradientTestActivity" />

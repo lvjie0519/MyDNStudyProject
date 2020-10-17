@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.mydnstudyproject.framework.chapter10.SkinMainTestActivity;
 import com.example.mydnstudyproject.high.grade.ui.UIMainActivity;
 import com.example.mydnstudyproject.interview.zly.ZhongNanYuanMainActivity;
 
@@ -22,5 +23,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void openZhongNanYuanActivity(View view) {
         ZhongNanYuanMainActivity.startActivity(this);
+    }
+
+    public void openSkinTestActivity(View view) {
+        SkinMainTestActivity.startActivity(this);
     }
 }
