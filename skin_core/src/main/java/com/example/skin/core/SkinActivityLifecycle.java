@@ -5,6 +5,7 @@ import android.app.Application;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.ArrayMap;
+import android.util.Log;
 import android.view.LayoutInflater;
 
 
@@ -23,6 +24,7 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
 
     @Override
     public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+        Log.i("lvjie", "SkinActivityLifecycle-->onActivityCreated... start");
         /**
          *  更新状态栏
          */
@@ -52,6 +54,8 @@ public class SkinActivityLifecycle implements Application.ActivityLifecycleCallb
         LayoutInflaterCompat.setFactory2(layoutInflater, skinLayoutInflaterFactory);
         mLayoutInflaterFactories.put(activity, skinLayoutInflaterFactory);
         SkinManager.getInstance().addObserver(skinLayoutInflaterFactory);
+
+        Log.i("lvjie", "SkinActivityLifecycle-->onActivityCreated... end");
     }
 
     @Override

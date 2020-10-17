@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -52,6 +53,14 @@ public class SkinLayoutInflaterFactory implements LayoutInflater.Factory2, Obser
      */
     @Override
     public View onCreateView(View parent, String name, Context context, AttributeSet attrs) {
+
+        if(parent == null){
+            Log.i("lvjie", "parent is null...");
+        }else{
+            Log.i("lvjie", "parent is "+parent.getClass().getName());
+        }
+
+
         //换肤就是在需要时候替换 View的属性(src、background等)
         //所以这里创建 View,从而修改View属性
         View view = createViewFromTag(name, context, attrs);

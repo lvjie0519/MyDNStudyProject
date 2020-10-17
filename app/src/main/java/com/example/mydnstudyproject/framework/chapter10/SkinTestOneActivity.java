@@ -35,10 +35,13 @@ public class SkinTestOneActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i("lvjie", "SkinTestOneActivity-->onCreate... before setContentView...");
         setContentView(R.layout.activity_skin_test_one);
 
         skins.add(new Skin("d61a53df84e96a8122dc9a06796dcd95", "1111111.skin", "app_skin-debug" +
                 ".apk"));
+
+        Log.i("lvjie", "SkinTestOneActivity-->onCreate... after setContentView...");
     }
 
     public void onClickSkinChange(View view) {
@@ -55,10 +58,11 @@ public class SkinTestOneActivity extends Activity {
     }
 
     /**
-     * 下载皮肤包
+     * 下载皮肤包, 将文件拷贝到 skin.getSkinFile 目录下的文件
      */
     private void selectSkin(Skin skin) {
         File theme = new File(getFilesDir(), "theme");
+        // 防止 theme 是文件，不是文件夹
         if (theme.exists() && theme.isFile()) {
             theme.delete();
         }
@@ -75,7 +79,7 @@ public class SkinTestOneActivity extends Activity {
         File tempSkin = new File(skinFile.getParentFile(), skin.name + ".temp");
         try {
             fos = new FileOutputStream(tempSkin);
-            //假设下载皮肤包
+            //假设下载皮肤包, 从asserts下取文件
             is = getAssets().open(skin.url);
             byte[] bytes = new byte[10240];
             int len;
