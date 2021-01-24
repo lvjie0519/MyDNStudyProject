@@ -44,4 +44,5 @@ dependencies {
 
     // 动态换肤
     implementation project(path: ':skin_core')
+    implementation project(path: ':commonplugin')
 }

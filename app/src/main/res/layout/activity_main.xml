@@ -26,4 +26,11 @@
         android:textSize="16sp"
         android:onClick="openSkinTestActivity"/>
 
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="46dp"
+        android:text="插件化运用"
+        android:textSize="16sp"
+        android:onClick="openPluginTestActivity"/>
+
 </LinearLayout>

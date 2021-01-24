@@ -10,7 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".framework.chapter10.SkinTestOneActivity"></activity>
+        <activity android:name=".framework.chapter.plugin.PluginTestActivity"/>
+        <activity android:name=".framework.chapter.plugin.ProxyActivity"/>
+        <activity android:name=".framework.chapter10.SkinTestOneActivity" />
         <activity android:name=".framework.chapter10.SkinMainTestActivity" />
         <activity
             android:name=".interview.zly.ApplyFormDetailActivity"
