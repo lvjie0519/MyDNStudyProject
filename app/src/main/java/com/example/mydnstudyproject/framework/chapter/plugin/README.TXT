@@ -33,3 +33,46 @@ Android 9.0开始， 系统有限制反射， 所以反射的方式基本已经�
 
     通俗的说，通过反射获取系统的对象，然后再通过反射修改系统对象的数据，也可以通过动态代理替换系统里面的对象，当系统调用到替换的对象是，对
     部分方法进行一个拦截处理；
+
+native 的插件化方案，多多少少都需要用到反射，获取系统对象或调用系统隐藏方法等等，Android P（9.0）后，Google对反射做了限制，不能调用部分
+隐藏的api，添加了灰黑名单，那么Google是如何做到这种限制的呢？
+
+主要是在反射过程中做了拦截。
+
+参考文档：https://www.cnblogs.com/renhui/p/14214996.html
+
+通过反射或者JNI访问非公开接口时会触发警告/异常等，那么不妨跟踪一下反射的流程，看看系统到底在哪一步做的限制。
+我们从 java.lang.Class.getDeclaredMethod(String) 看起，这个方法在Java层最终调用到了 getDeclaredMethodInternal
+这个native方法，看一下这个方法的源码：
+
+static jobject Class_getDeclaredMethodInternal(JNIEnv* env, jobject javaThis, jstring name, jobjectArray args) {
+  ScopedFastNativeObjectAccess soa(env);
+  StackHandleScope<1> hs(soa.Self());
+  DCHECK_EQ(Runtime::Current()->GetClassLinker()->GetImagePointerSize(), kRuntimePointerSize);
+  DCHECK(!Runtime::Current()->IsActiveTransaction());
+  Handle<mirror::Method> result = hs.NewHandle(
+      mirror::Class::GetDeclaredMethodInternal<kRuntimePointerSize, false>(
+          soa.Self(),
+          DecodeClass(soa, javaThis),
+          soa.Decode<mirror::String>(name),
+          soa.Decode<mirror::ObjectArray<mirror::Class>>(args)));
+  if (result == nullptr || ShouldBlockAccessToMember(result->GetArtMethod(), soa.Self())) {
+    return nullptr;
+  }
+  return soa.AddLocalReference<jobject>(result.Get());
+}
+
+注意那个 ShouldBlockAccessToMember 调用了吗？如果它返回false，那么直接返回nullptr，上层就会抛 NoSuchMethodXXX 异常；
+也就触发系统的限制了。于是我们继续跟踪这个方法，这个方法的实现在 java_lang_Class.cc，源码如下：
+
+ALWAYS_INLINE static bool ShouldBlockAccessToMember(T* member, Thread* self)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  hiddenapi::Action action = hiddenapi::GetMemberAction(
+      member, self, IsCallerTrusted, hiddenapi::kReflection);
+  if (action != hiddenapi::kAllow) {
+    hiddenapi::NotifyHiddenApiListener(member);
+  }
+  return action == hiddenapi::kDeny;
+}
+
+毫无疑问，我们应该继续看 hidden_api.cc 里面的 GetMemberAction方法 ：
